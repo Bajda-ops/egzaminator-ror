@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  Edytuj grupę testów
+<%end%>
+<% content_for :content do %>
+  <% form_tag :action => 'update', :id => @item.id  do %>
+    <p>Nazwa grupy:<%= text_field 'item', 'name'-%></p>
+    <%= submit_tag "Zapisz zmiany" %>
+  <% end  %>
+<%end%>

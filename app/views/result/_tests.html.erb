@@ -1,0 +1,7 @@
+<%if ((defined? citems).nil? and (defined? ctype_id).nil?)%>
+  ---
+<%else%>
+  <%= collection_select(nil, :taken_test_id, citems,  :id, :full_name,
+    {:prompt   => "- Wybierz test -", :selected => nil})%>
+  <%= submit_tag "Pokaż wyniki" %>
+<%end%>

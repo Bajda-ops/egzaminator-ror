@@ -1,0 +1,14 @@
+class TakenTestController < ApplicationController
+
+  def list_results
+
+  end
+
+  def show_result
+
+  end
+
+  def delete_result
+
+  end
+end

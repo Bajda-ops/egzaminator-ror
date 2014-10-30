@@ -1,0 +1,77 @@
+/* 
+    Document   : style
+    Created on : 2011-03-13, 02:49:32
+    Author     : bajda
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+body {
+     font-family: Helvetica, Verdana, sans-serif;
+}
+
+a:link {
+
+}
+
+a:visited {
+    
+}
+
+a:hover {
+    
+}
+
+a:active {
+    
+}
+
+element.style {
+    background: none repeat scroll 0 0 #BFBF30;
+}
+
+div#header_d {
+        background: none repeat scroll 0% 0% rgb(255, 255, 64);
+}
+
+div#header_overlay {
+    background: url("/stylesheets/user_style/images/header2.png") no-repeat scroll right top transparent;
+    height: 145px;
+    left: 14px;
+    position: relative;
+    top: -15px;
+    width: 780px;
+}
+
+div#hdr_box1 {
+
+}
+
+div#left_d {
+    background-color: blueviolet;
+    position: absolute;
+    left: 10px;
+    top: 90px;
+    width: 200px;
+
+}
+
+div#center_d {
+    background-color: greenyellow;
+}
+
+div#right_d {
+    background-color: orange;
+    position: absolute;
+    top: 90px;
+    right: 10px;
+    width: 200px;
+}
+
+div#footer_d {
+    background-color: pink;
+}

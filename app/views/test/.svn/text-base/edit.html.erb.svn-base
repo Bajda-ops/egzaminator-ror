@@ -1,0 +1,84 @@
+<% content_for :title do %>
+  <%= @test.name %>
+<%end%>
+
+<% content_for :content do %>
+
+  <table width="560" border="1">
+    <tr>   <th>Pytania</th>    <th>Odpowiedzi</th> </tr>
+
+    <%if @questions.blank?%>
+      <tr> <td> Brak pytań </td> <td>Brak odpowiedzi</td> </tr>
+
+    <%else%>
+      <%@questions.each_with_index do |question, question_index|%>
+        <tr>
+          <td>
+
+            <% form_for "questions[#{question_index.to_s}]", question, :url => {:action => 'change_question'}, :html => { :multipart => true } do |x| %>
+              <h2><p>#<%= question.id %></p></h2>
+              <p><%= x.text_field :tekst %></p>
+              <p><%= x.collection_select(:question_type_id,@question_types, :id,:name)%></p>
+
+              <p><%= file_field_tag :attachment %></p>
+              <p><%= question.file_info.blank? ? "Brak załączonego pliku" : "Załączony plik #{question.file_info.name} #{question.file_info.ext}"%></p>
+              <%= hidden_field_tag "test_id", params[:id] %>
+              <%= hidden_field_tag 'question_id', question.id %>
+              <%= submit_tag "Usuń pytanie", :onClick => "return confirm('Czy napewno usunąć pytanie?');" %>
+              <%= submit_tag "Usuń załącznik", :onClick => "return confirm('Czy napewno usunąć załącznik?');" %>
+              <%= submit_tag "Zapisz pytanie" %>
+            <%end%>
+          </td>
+
+
+          <td>
+            <%if question.answers.blank?%>
+              Brak odpowiedzi
+            <%else%>
+              <%@curr_answers = Answer.find_all_by_question_id(question.id, :order => "id ASC") %>
+              <ul>
+                <% @curr_answers.each_with_index do |answer,answer_index| %>
+                  <li>
+                    <% form_for "curr_answers[#{answer_index.to_s}]", answer, :url => {:action => 'change_answer'}, :html => { :multipart => true } do |x| %>
+                      <h2><p>#<%= answer.id %></p></h2>
+                      <p><%= x.text_field :tekst %></p>
+                      <p><%= x.text_field :points %></p>
+                      <p><%= file_field_tag :attachment %></p>
+                      <p><%= answer.file_info.blank? ? "Brak załączonego pliku" : "Załączony plik #{answer.file_info.name} #{answer.file_info.ext}"%></p>
+                      <%= hidden_field_tag "test_id", params[:id] %>
+                      <%= hidden_field_tag 'answer_id', answer.id %>
+                      <%= submit_tag "Usuń odpowiedź", :onClick => "return confirm('Czy napewno usunąć odpowiedź?');" %>
+                      <%= submit_tag "Usuń załącznik", :onClick => "return confirm('Czy napewno usunąć załącznik?');" %>
+                      <%= submit_tag "Zapisz odpowiedź" %>
+                    <%end%>
+                  </li>
+                <%end%>
+              </ul>
+            <%end%>
+
+
+
+
+            <% form_tag :action => 'add_answer' do %>
+              <%= hidden_field_tag "test_id", params[:id] %>
+              <%= hidden_field_tag "question_id", question.id %>
+              <%= submit_tag "Dodaj odpowiedź" %>
+            <%end%>
+          </td>
+        </tr>
+      <%end%>
+    <%end%>
+
+    <tr>
+      <td>
+        <% form_tag :action => 'add_question', :id => @test.id do %>
+          <%= submit_tag "Dodaj pytanie" %>
+        <%end%>
+      </td>
+      <td>
+
+      </td>
+    </tr>
+  </table>
+
+<%end%>

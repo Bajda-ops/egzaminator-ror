@@ -1,0 +1,52 @@
+<% content_for :title do %>
+  Użytkownicy
+<%end%>
+
+<% content_for :content do %>
+  <%if current_user.admin?%>
+    <%@roles = Role.find(:all, :order => "name ASC")%>
+    <p>Role użytkowników:</p>
+    <ul id="roles">
+      <% @roles.each do |c| %>
+        <li><a name="tg_<%= c.id -%>" onclick="slide_js('tg_wrapper_<%=c.id-%>');" href="#tg_<%= c.id -%>"><%= c.name-%></a></li>
+        <div id="tg_wrapper_<%=c.id-%>" style="display: none;">
+          <div>
+            <%users = User.find_all_by_role_id(c.id, "surname ASC") %>
+            <%if users.blank?%>
+              Brak użytkowników dla danej roli
+            <%else%>
+              <ul>
+                <% users.each do |user| %>
+                  <li><%= user.name + " " + user.surname + " " + user.group.name + ",właściciel: " + user.user.name + " " + user.owner.surname%><%= link_to "[Usuń]", {:action =>'delete_user', :id => user.id}, :onClick => "return confirm('Czy napewno usunąć użytkownika?');"-%><%= link_to "[Edytuj]", {:action =>'edit_user', :id => user.id}-%></li>
+                <%end%>
+              </ul>
+            <%end%>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  <%else%>
+    <%@groups = Group.find(:all,:conditions => {:user_id => current_user.id}, :order => "name ASC")%>
+    <p>Grupy użytkowników:</p>
+    <ul id="groups">
+      <% @groups.each do |c| %>
+        <li><a name="tg_<%= c.id -%>" onclick="slide_js('tg_wrapper_<%=c.id-%>');" href="#tg_<%= c.id -%>"><%= c.name-%></a></li>
+        <div id="tg_wrapper_<%=c.id-%>" style="display: none;">
+          <div>
+            <%users = User.find_all_with_rights(current_user.id, c.id) %>
+            <%if users.blank?%>
+              Brak użytkowników w grupie
+            <%else%>
+              <ul>
+                <% users.each do |user| %>
+                  <li><%= user.name + " " + user.surname + " " + user.group.name + ",właściciel: " + user.owner.name + " " + user.owner.surname%><%= link_to "[Usuń]", {:action =>'delete_user', :id => user.id}, :onClick => "return confirm('Czy napewno usunąć użytkownika?');"-%><%= link_to "[Edytuj]", {:action =>'edit_user', :id => user.id}-%></li>
+                <%end%>
+              </ul>
+            <%end%>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  <%end%>
+    <%=  link_to "Dodaj użytkownika", :action => "add_user"%>
+<%end%>

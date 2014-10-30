@@ -1,0 +1,16 @@
+<% content_for :title do %>
+  Wyniki testów
+<%end%>
+
+<% content_for :content do %>
+  <%form_tag( {:controller => 'result',:action => 'generate_pdf'}) do %>
+    <div>Typ:         <%= collection_select(nil, :ctype,  @types,  :last, :first,
+        {:prompt   => "- Wybierz typ -", :selected => nil},
+        {:onchange => "#{remote_function(:url  => {:action => "reload_elements_tests"},
+          :update => 'all_elements',
+          :with => ("'ctype='+value")  )}" }) %></div>
+    <div id="all_elements">
+      <%= render "result/elements" %>
+    </div>
+  <%end%>
+<%end%>

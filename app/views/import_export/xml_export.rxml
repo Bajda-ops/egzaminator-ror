@@ -1,0 +1,23 @@
+xml.instruct!
+xml.db_data do
+  @data.each do |data_item|
+    xml.table do
+      xml.class_name data_item[:class_name]
+      if !data_item[:items].blank?
+        xml.data do
+          data_item[:items].each do |item|
+            xml.data_row do
+              data_item[:columns].each do |col_name|
+                if (col_name == "content")
+                  xml.tag!(col_name, eval("Base64.encode64(item.#{col_name})"))
+                else
+                  xml.tag!(col_name, eval("item.#{col_name}"))
+                end
+              end
+            end
+          end
+        end
+      end
+    end
+  end
+end

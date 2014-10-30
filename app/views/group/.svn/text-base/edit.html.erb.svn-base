@@ -1,0 +1,11 @@
+<% content_for :title do %>
+  Edytuj grupę
+<%end%>
+
+<% content_for :content do %>
+  <% form_tag :action => 'update', :id => @item.id do %>
+    <p>Nazwa grupy:<%= text_field 'item', 'name'-%></p>
+    <p>Rocznik:<%= text_field 'item', 'year_nr'-%></p>
+    <%= submit_tag "Zapisz zmiany" %>
+  <% end  %>
+<%end%>

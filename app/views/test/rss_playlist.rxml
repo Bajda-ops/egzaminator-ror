@@ -1,0 +1,16 @@
+xml.instruct!
+xml.rss( "version" => "2.0", "xmlns:media" => "http://search.yahoo.com/mrss/") do
+  xml.channel do
+    xml.title "RSS Egzaminator"
+    xml.link "http://foo.bar"
+    xml.description "Multimedia do testu"
+    @videos.each do |file|
+      xml.item do
+        xml.title(file.owner_type == "q" ? "Pytanie #{file.question_id}" : "Odpowiedz #{file.answer_id}")
+        xml.enclosure("url" => "/file/show/#{file.id}/mov.flv", "type" => "video/x-flv")
+        xml.tag!("media:content", {"url" => "/file/show/#{file.id}/mov.flv", "type" => "video/x-flv"})
+      end
+    end
+  end
+end
+

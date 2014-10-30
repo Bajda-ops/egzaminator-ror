@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link href="/stylesheets/user_style/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <%= javascript_include_tag "prototype"%>
+    <%= javascript_include_tag "scriptaculous"%>
+    <%= javascript_include_tag "user_js" %>
+  </head>
+
+  <body>
+    <div id="topbg"></div>
+    <div id="main">
+      <div id="header">
+        <div id="hdr-overlay"></div>
+        <div class="box bg-pri-1" id="hdr-box1"></div>
+        <div class="box bg-pri-2" id="hdr-box2"></div>
+        <div class="box bg-pri-3" id="hdr-box3"></div>
+        <div class="box bg-pri-4" id="hdr-box4"></div>
+        <h1>egzaminator 1.0</h1>
+        <h2>Witaj <%= current_user.name + " " + current_user.surname %>!</h2>
+      </div>
+
+      <ul id="menu">
+        <li><a href="/users/info" class="sel"><span></span>Dane użytkownika</a></li>
+        <li><a href="/users/list_tests_results"><span></span>Wyniki testów</a></li>
+        <li><a href="/users/list_tests_active"><span></span>Aktywne testy</a></li>
+      </ul>
+
+      <div id="content">
+        <div id="left">
+          <% if ((controller.controller_name == 'test') and (controller.action_name == 'show_question'))%>
+            <%= link_to "«", :controller => 'test', :action => 'prev_q', :active_test_id => params[:active_test_id], :question_ord_id => params[:question_ord_id]%>
+          <%else%>
+            <%= link_to "«", "#" %>
+          <%end%>
+        </div>
+        <div id="center">
+          <%= yield :center %>
+        </div>
+        <div id="right">
+          <% if ((controller.controller_name == 'test') and (controller.action_name == 'show_question'))%>
+            <%= link_to "»", :controller => 'test', :action => 'next_q', :active_test_id => params[:active_test_id], :question_ord_id => params[:question_ord_id]%>
+          <%else%>
+            <%= link_to "»", "#" %>
+          <%end%>
+        </div>
+        <div id="footer">
+          <a href="#">Ipsum</a> |
+          <a href="#">Dolor</a> |
+          <a href="#">Sit amet</a> |
+          <a href="#">Aliquip</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

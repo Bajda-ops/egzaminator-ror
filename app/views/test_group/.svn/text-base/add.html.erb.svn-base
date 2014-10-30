@@ -1,0 +1,9 @@
+<% content_for :title do %>
+  Dodaj grupę testów
+<%end%>
+<% content_for :content do %>
+  <% form_tag :action => 'save'  do %>
+    <p>Nazwa grupy:<%= text_field 'item', 'name'-%></p>
+    <%= submit_tag "Utwórz" %>
+  <% end  %>
+<%end%>

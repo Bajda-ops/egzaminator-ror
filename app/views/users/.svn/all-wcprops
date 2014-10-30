@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/app/views/users
+END
+list_view.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/app/views/users/list_view.html.erb
+END
+add_user.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/app/views/users/add_user.html.erb
+END
+list_tests_active.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/app/views/users/list_tests_active.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/app/views/users/new.html.erb
+END
+info.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/app/views/users/info.html.erb
+END
+start.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/app/views/users/start.html.erb
+END
+list_tests_results.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/app/views/users/list_tests_results.html.erb
+END
+edit_user.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/app/views/users/edit_user.html.erb
+END

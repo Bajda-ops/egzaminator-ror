@@ -1,0 +1,77 @@
+10
+
+dir
+2
+http://svn3.xp-dev.com/svn/egzaminator/egzaminator_ror/test
+http://svn3.xp-dev.com/svn/egzaminator
+
+
+
+2011-03-05T21:31:33.503369Z
+2
+jakub.bajorek
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12114aba-635a-413a-9ce2-a3ad3e05d8bb
+
+unit
+dir
+
+test_helper.rb
+file
+
+
+
+
+2010-02-03T22:52:05.000000Z
+e297614c72684d065aef001f86188732
+2011-03-05T21:31:33.503369Z
+2
+jakub.bajorek
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1800
+
+performance
+dir
+
+functional
+dir
+
+integration
+dir
+
+fixtures
+dir
+

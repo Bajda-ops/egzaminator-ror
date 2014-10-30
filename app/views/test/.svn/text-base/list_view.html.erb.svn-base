@@ -1,0 +1,19 @@
+<% content_for :title do %>
+  Utworzone testy
+<%end%>
+
+<% content_for :content do %>
+
+  <% if @tests.blank? %>
+    <p>Brak testów</p>
+  <% else %>
+    <p>Testy:</p>
+    <ul id="tests">
+      <% @tests.each do |c| %>
+        <li><%= c.name + ", utworzony przez " + c.user.name + " " + c.user.surname -%><%= link_to "[Usuń]", {:action =>'delete_test', :id => c.id}, :onClick => "return confirm('Czy napewno usunąć test?');"-%><%= link_to "[Edytuj]", {:action =>'edit_test', :id => c.id}-%></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <p><%= link_to "Dodaj test", {:action => 'create_test'}%></p>
+
+<%end%>

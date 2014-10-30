@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/searchlogic/lib/searchlogic/named_scopes
+END
+alias_scope.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/searchlogic/lib/searchlogic/named_scopes/alias_scope.rb
+END
+association_conditions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/searchlogic/lib/searchlogic/named_scopes/association_conditions.rb
+END
+association_ordering.rb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/searchlogic/lib/searchlogic/named_scopes/association_ordering.rb
+END
+column_conditions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/searchlogic/lib/searchlogic/named_scopes/column_conditions.rb
+END
+or_conditions.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/searchlogic/lib/searchlogic/named_scopes/or_conditions.rb
+END
+ordering.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/searchlogic/lib/searchlogic/named_scopes/ordering.rb
+END
+base.rb
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/searchlogic/lib/searchlogic/named_scopes/base.rb
+END

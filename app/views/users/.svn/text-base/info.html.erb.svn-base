@@ -1,0 +1,6 @@
+<% content_for :center do %>
+Jesteś zalogowany jako:<br />
+Imię: <%= current_user.name %><br />
+Nazwisko: <%= current_user.surname%>
+
+<%end%>

@@ -1,0 +1,50 @@
+module ControllerOwnershipMethods
+
+  def delete_ownership
+    item = eval("#{self.class.name.gsub("Controller", "")}.first(:conditions => {:id => #{params[:id].to_str.delete("^0-9")}})")
+    if (item.user_id == current_user.id)
+      user_id = params[:user_id].to_str.delete("^0-9")
+      ac = {:action => "edit_ownership", :id => params[:id]}
+    else
+      user_id = current_user.id
+      ac = {:action => "list_view"}
+    end
+    results = eval("#{self.class.name.gsub("Controller", "Ownership")}.first(:conditions => {:user_id => #{user_id}, :item_id => #{params[:id].to_str.delete("^0-9")}})")
+    if results.blank?
+      flash[:error] = "Błędne id, nie usunięto praw dostępu"
+    else
+      results.destroy
+      flash[:notice] = "Usunięto prawa dostępu"
+    end
+    redirect_to ac
+  end
+
+  def edit_ownership
+    main_class = eval("#{self.class.name.gsub("Controller", "")}")
+    own_class = eval("#{self.class.name.gsub("Controller", "Ownership")}")
+    @item = main_class.find_by_id(params[:id])
+    ids = []
+    own_class.find(:all, :conditions => {:item_id => params[:id]}).each{|ownership| ids << ownership.user_id}
+    @users = User.find(:all, :conditions => {:id => ids})
+    @teachers = User.find_all_by_role_id(Role.find_by_name("Wykładowca"))
+    render "common/edit_ownership"
+  end
+
+  def add_ownership
+    user = User.find(params[:user_id])
+    if user.teacher?
+      own_class = eval("#{self.class.name.gsub("Controller", "Ownership")}")
+      begin
+        new_ownership = own_class.new({:item_id => params[:id], :user_id => params[:user_id]})
+        new_ownership.save
+        flash[:notice] = "Dodano uprawnienia"
+      rescue
+        flash[:error] = "Uprawnienia dla tego użytkownika już istnieją"
+      end
+    else
+      flash[:error] = "Uprawnienia można nadawać tylko wykładowcom"
+    end
+    redirect_to :action => "edit_ownership", :id => params[:id]
+  end
+
+end

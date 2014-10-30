@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/lib
+END
+model_human_class_name.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/lib/model_human_class_name.rb
+END
+role_requirement_test_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/lib/role_requirement_test_helper.rb
+END
+authenticated_test_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/lib/authenticated_test_helper.rb
+END
+controller_view_methods.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/lib/controller_view_methods.rb
+END
+hijacker.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/lib/hijacker.rb
+END
+model_ownership_methods.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/lib/model_ownership_methods.rb
+END
+controller_ownership_methods.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/lib/controller_ownership_methods.rb
+END
+role_requirement_system.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/lib/role_requirement_system.rb
+END
+authenticated_system.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/lib/authenticated_system.rb
+END

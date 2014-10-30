@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <link href="/stylesheets/cms_style/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/stylesheets/cms_style/lightbox.css" rel="stylesheet" type="text/css" media="screen" />
+    <%= javascript_include_tag "prototype"%>
+    <%= javascript_include_tag "scriptaculous"%>
+    <%= javascript_include_tag "cms_js" %>
+    <%= javascript_include_tag "lightbox" %>
+  </head>
+  <%(flash[:notice].nil? and flash[:error].nil?) ? blink_status = "" : blink_status = "Effect.Pulsate('erri_hdr', { pulses: 10, duration: 20 });"%>
+  <body onload="<%= blink_status %>">
+
+    <!-- %=#  embed_movie_player("http://localhost:3000/media_rss/1/feed.xml") % -->
+
+    <div id="logo">
+      <h1>Egzaminator 1.0</h1>
+      <p>
+        <em>Panel administracyjny</em>
+      </p>
+    </div>
+
+    <div id="page">
+      <div id="page-bgtop">
+        <div id="page-bgbtm">
+          <div id="content">
+            <%= err_info_field(flash[:notice], flash[:error]) %>
+            <%= multimedia_bar(params) %>
+            <%= cms_post(yield(:title),  (yield :content))%>
+          </div>
+          <div id="sidebar">
+            <ul>
+              <li>
+                <h2>Menu</h2>
+                <ul>
+                  <li><%= link_to "Grupy użytkowników", {:controller => "group", :action =>'list_view'}-%></li>
+                  <li><%= link_to "Grupy testów", {:controller => "test_group", :action => "list_view"} %></li>
+                  <li><%= link_to "Użytkownicy", {:controller => "users", :action =>'s_list_view'}-%></li>
+                  <li><%= link_to "Testy", {:controller => "test", :action => "s_list_view"} %></li>
+                  <li><%= link_to "Rozpocznij test", {:controller => "test", :action => "make_test"} %></li>
+                  <li><%= link_to "Wyniki", {:controller => "result", :action => "show"} %></li>
+                  <li><%= link_to "Import/eksport danych", {:controller => "import_export", :action => "show"} %></li>
+                  <li><%= link_to "Wyloguj", {:controller => "sessions", :action =>'destroy'}-%></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <p>
+        Autor aplikacji: Jakub Bajorek, Grafika: <a href="http://www.freecsstemplates.org/">Free CSS Templates </a>
+      </p>
+    </div>
+
+  </body>
+</html>

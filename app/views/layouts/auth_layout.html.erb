@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+  </head>
+  <body>
+    <div>
+      <%if not flash[:notice].nil?%>
+        <%= flash[:notice] %>
+      <%end%>
+    </div>
+    <div>
+      <%if not flash[:error].nil?%>
+        <%= flash[:error] %>
+      <%end%>
+    </div>
+    <div>
+      <%= yield -%>
+    </div>
+  </body>
+</html>

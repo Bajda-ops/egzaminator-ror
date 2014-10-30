@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/script
+END
+console
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/script/console
+END
+server
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/script/server
+END
+dbconsole
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/script/dbconsole
+END
+destroy
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/script/destroy
+END
+runner
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/script/runner
+END
+about
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/script/about
+END
+generate
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/script/generate
+END
+plugin
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/script/plugin
+END

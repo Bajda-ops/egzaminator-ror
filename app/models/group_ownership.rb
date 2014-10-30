@@ -1,0 +1,2 @@
+class GroupOwnership < Ownership
+end

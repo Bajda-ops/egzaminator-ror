@@ -1,0 +1,6 @@
+<% content_for :center do %>
+  <div>  Poczekaj na rozpoczęcie testu przez prowadzącego</div>
+  <%if @current_test.is_running?%>
+    <div><%= link_to "Przejdź do pytań", {:controller => 'test', :action => 'show_question', :active_test_id => @current_test.id}%></div>
+  <%end%>
+<%end%>

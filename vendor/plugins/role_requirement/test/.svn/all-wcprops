@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/test
+END
+test_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/test/test_helper.rb
+END
+controller_stub.rb
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/test/controller_stub.rb
+END
+authenticated_system.rb
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/test/authenticated_system.rb
+END
+user_stub.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/test/user_stub.rb
+END

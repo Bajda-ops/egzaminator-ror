@@ -1,0 +1,68 @@
+10
+
+dir
+2
+http://svn3.xp-dev.com/svn/egzaminator/egzaminator_ror/app/views
+http://svn3.xp-dev.com/svn/egzaminator
+
+
+
+2011-03-05T21:31:33.503369Z
+2
+jakub.bajorek
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12114aba-635a-413a-9ce2-a3ad3e05d8bb
+
+test
+dir
+
+file
+dir
+
+answer
+dir
+
+layouts
+dir
+
+users
+dir
+
+taken_test
+dir
+
+sessions
+dir
+
+question
+dir
+
+common
+dir
+
+test_group
+dir
+
+import_export
+dir
+
+
+
+add
+
+group
+dir
+

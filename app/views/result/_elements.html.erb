@@ -1,0 +1,10 @@
+<%if (defined? ctype).nil? and (defined? citems).nil?%>
+<div>---</div>
+<%else%>
+  <div>Obiekt: <%= collection_select(nil, :item_id, citems,  :id, :full_name,
+      {:prompt   => "- Wybierz obiekt -", :selected => nil},
+      {:onchange => "#{remote_function(:url  => {:action => "reload_tests"},
+        :update => 'tests',
+        :with => ("'element_id='+value+'&ctype=#{ctype}'")  )}" }) %></div>
+  <div id="tests"><%= render "result/tests" %></div>
+<%end%>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/app/views/layouts
+END
+admin_layout.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/app/views/layouts/admin_layout.html.erb
+END
+user_layout.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/app/views/layouts/user_layout.html.erb
+END
+auth_layout.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/app/views/layouts/auth_layout.html.erb
+END

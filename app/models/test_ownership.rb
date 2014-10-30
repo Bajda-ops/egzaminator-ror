@@ -1,0 +1,2 @@
+class TestOwnership < Ownership
+end

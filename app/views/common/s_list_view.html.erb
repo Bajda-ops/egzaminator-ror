@@ -1,0 +1,31 @@
+<% content_for :title do %>
+  <%if @t%>
+    Utworzone testy
+  <%else%>
+    Użytkownicy
+  <%end%>
+<%end%>
+
+<% content_for :content do %>
+
+  <% if @items.blank? and @t%>
+    <p>Brak testów</p>
+  <%elsif @items.blank? and @u%>
+    <p>Brak użytkowników</p>
+  <% else %>
+    <ul id="items">
+      <% @items.each do |item| %>
+        <li><%= item.full_name + ", właściciel: " + item.user.name + " " + item.user.surname-%><%= link_to "[Usuń]", {:action =>'delete_with_content', :id => item.id}, :onClick => "return confirm('Czy napewno usunąć obiekt wraz z zawartością?');"-%><%= link_to "[Edytuj]", {:action =>'edit', :id => item.id}-%>
+          <%if current_user.has_full_access?(item) %>
+            <%= link_to "[Edycja uprawnień]", {:action =>'edit_ownership', :id => item.id}-%>
+          <%elsif current_user.has_restricted_access?(item)%>
+            <%= link_to "[Usuń uprawnienia]", {:action =>'delete_ownership', :id => item.id}, :onClick => "return confirm('Czy napewno usunąć uprawnienia?');"-%>
+          <%end%>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <%(@t ? (par = "test") : (par = "users"))%>
+  <p><%= link_to "Dodaj obiekt", {:controller => par, :action => "add"}%></p>
+
+<%end%>

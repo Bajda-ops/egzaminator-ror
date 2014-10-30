@@ -1,0 +1,18 @@
+class Question < ActiveRecord::Base
+  has_many :answers, :dependent => :destroy
+  belongs_to :test
+  belongs_to :question_type
+  has_one :file_info, :dependent => :destroy
+
+  validates_presence_of     :tekst, :message => "nie może być pusty"
+
+  HUMAN_ATTRIBUTES = {
+    :tekst                => "Tekst pytania"
+  }
+
+  def self.human_attribute_name(attr)
+    HUMAN_ATTRIBUTES[attr.to_sym] || super
+  end
+
+
+end

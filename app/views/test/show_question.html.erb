@@ -1,0 +1,22 @@
+<% content_for :center do %>
+  <h2><%= "#{@current_test.name} Czas pozostały do końca: #{Time.at((@current_active_test.start_time + @current_active_test.test.duration.minutes) - Time.now).gmtime.strftime('%R:%S')}" %></h2>
+  <%if @current_question.blank? %>
+    Brak danych dla pytania o podanym id
+  <%else%>
+    <h3>Pytanie #<%= @current_question.ord_id %> Przejdź do pytania:
+      <%form_tag "" do%>
+
+        <%= collection_select(nil, :question_ord_id,  @q_ords,  :first, :last,
+          {:prompt   => "- Nr pytatnia -", :selected => params[:question_ord_id].to_i},
+          {:onchange => "#{remote_function(:url  => {:action => "skip_to_q"},
+            :with => ("'question_ord_id='+value+'&active_test_id=#{@current_active_test.id.to_s}'")  )}" }) %>
+
+      <%end%>
+      <br />
+      <%= @current_question.tekst%></h3><br />
+    <% form_tag "/test/mark_answer" do %>
+      <%= question_hlp(@current_question, @current_active_test.id) %>
+      <%=submit_tag "Zapisz odpowiedź"%>
+    <%end%>
+  <%end%>
+<%end%>

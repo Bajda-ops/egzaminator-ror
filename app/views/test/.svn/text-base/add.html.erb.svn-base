@@ -1,0 +1,12 @@
+<% content_for :title do %>
+  Dodaj test
+<%end%>
+
+<% content_for :content do %>
+  <% form_tag :action=> "save_test" do%>
+    <p><label for="test_name">Nazwa testu:</label><%= text_field 'test', 'name' %></p>
+    <p><label for="test_user_id">Właściciel testu:</label>:<%= collection_select(:test, :user_id, @users, :id, :surname) %></p>
+    <p><label for="test_group_id">Grupa testów:</label>:<%= collection_select(:test, :test_group_id, @test_groups, :id, :name) %></p>
+    <%= submit_tag "Stwórz test" %>
+  <% end %>
+<%end%>

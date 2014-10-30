@@ -1,0 +1,10 @@
+<% content_for :title do %>
+  Dodaj grupę
+<%end%>
+<% content_for :content do %>
+  <% form_tag :action => 'save'  do %>
+    <p>Nazwa grupy:<%= text_field 'item', 'name'-%></p>
+    <p>Rocznik:<%= text_field 'item', 'year_nr'-%></p>
+    <%= submit_tag "Utwórz" %>
+  <% end  %>
+<%end%>

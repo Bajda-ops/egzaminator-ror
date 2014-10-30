@@ -1,0 +1,19 @@
+<% content_for :title do %>
+  Import i eksport danych
+<%end%>
+
+<% content_for :content do %>
+  <h3>Eksport</h3>
+  <ul>
+    <li><b><%= link_to "Wszystko", {:action =>'xml_export', :type => "0"}-%></b></li>
+    <li><%= link_to "Grupy testów", {:action =>'xml_export', :type => "1"}-%></li>
+    <li><%= link_to "Grupy użytkowników", {:action =>'xml_export', :type => "2"}-%></li>
+    <li><%= link_to "Testy", {:action =>'xml_export', :type => "3"}-%></li>
+    <li><%= link_to "Użytkownicy", {:action =>'xml_export', :type => "4"}-%></li>
+  </ul>
+  <h3>Import</h3>
+  <% form_tag({:action=> "xml_import"}, :multipart => true) do%>
+    <%= file_field_tag :attachment %>
+    <%= submit_tag "Importuj" %>
+  <% end %>
+<%end%>

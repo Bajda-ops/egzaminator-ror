@@ -1,0 +1,40 @@
+<% content_for :title do %>
+  Przeprowadzanie testów
+<%end%>
+
+<% content_for :content do %>
+  <% form_tag :action => "start_test" do%>
+    <p><label for="item_name">Test: </label><%= collection_select(nil, :test_id, @tests, :id, :full_description) %></p>
+    <p><label for="item_test_group_id">Grupa: </label><%= collection_select(nil, :group_id, @groups, :id, :name) %></p>
+    <%= submit_tag "Utwórz test" %>
+  <%end%>
+  <h2>Aktywne testy</h2>
+  <table>
+    <tr>
+      <th>Nazwa</th>
+      <th>Operacje</th>
+    </tr>
+    <%if @a_tests.blank?%>
+      <tr><td colspan="2">Brak aktywnych testów</td></tr>
+    <%else%>
+      <%@a_tests.each do |test|%>
+        <tr><td><%= test.full_description + " Grupa studencka: " + test.group.name%></td><td><%= link_to "[Aktywuj test]", :action => 'activate_test', :id => test.id %><%= link_to "[Usuń test]", :action => 'destroy_a_test', :id => test.id %></td></tr>
+      <%end%>
+    <%end%>
+  </table>
+  <h2>Uruchomione testy</h2>
+  <table>
+    <tr>
+      <th>Nazwa</th>
+      <th>Czas do końca</th>
+      <th>Operacje</th>
+    </tr>
+    <%if @ar_tests.blank?%>
+      <tr><td colspan="3">Brak aktywnych testów</td></tr>
+    <%else%>
+      <%@ar_tests.each do |test|%>
+        <tr><td><%= test.full_description + " Grupa studencka: " + test.group.name %></td><td id="timer" align="center"><%= Time.at((test.start_time + test.test.duration.minutes) - Time.now).gmtime.strftime('%R:%S') %></td><td><%= link_to "[Zakończ przed czasem]", :action => 'fast_finish', :id => test.id %><%= link_to "[Usuń test]", :action => 'destroy_a_test', :id => test.id %></td></tr>
+      <%end%>
+    <%end%>
+  </table>
+<%end%>

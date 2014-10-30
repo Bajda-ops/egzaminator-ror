@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit
+END
+user_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit/user_test.rb
+END
+ownership_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/test/unit/ownership_test.rb
+END
+answer_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit/answer_test.rb
+END
+test_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit/test_test.rb
+END
+taken_test_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit/taken_test_test.rb
+END
+question_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit/question_test.rb
+END
+question_type_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit/question_type_test.rb
+END
+file_content_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit/file_content_test.rb
+END
+file_info_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit/file_info_test.rb
+END
+group_ownership_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/test/unit/group_ownership_test.rb
+END
+test_group_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit/test_group_test.rb
+END
+group_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/egzaminator/!svn/ver/2/egzaminator_ror/test/unit/group_test.rb
+END

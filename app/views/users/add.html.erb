@@ -1,0 +1,24 @@
+<% content_for :title do %>
+  Dodaj użytkownika
+<%end%>
+
+<% content_for :content do %>
+  <% form_tag :action => 'save'  do %>
+    <p>Login:<%= text_field 'item', 'login'-%></p>
+    <p>Hasło:<%= password_field 'item', 'password' %></p>
+    <p>Potwierdzenie hasła:<%= password_field 'item', 'password_confirmation' -%></p>
+    <p>Imię:<%= text_field 'item', 'name' -%></p>
+    <p>Nazwisko:<%= text_field 'item', 'surname' -%></p>
+    <p>Numer indeksu:<%= text_field 'item', 'index_nr' -%></p>
+    <p>E-mail:<%= text_field 'item', 'email' -%></p>
+    <p>Grupa:<%= collection_select(:item,:group_id,@groups,:id,:name) %></p>
+    <%if (!@roles.nil?)%>
+      <div>
+        <%@roles.each do |role|%>
+          <span><%= radio_button_tag 'role', role.name, @item.roles.include?(role) %><%= role.name %></span><br />
+        <%end%>
+      </div>
+    <%end%>
+    <%= submit_tag "Utwórz" %>
+  <% end  %>
+<%end%>

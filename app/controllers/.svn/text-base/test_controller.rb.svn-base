@@ -1,0 +1,119 @@
+class TestController < ApplicationController
+
+  include ControllerOwnershipMethods
+  layout 'admin_layout'
+  before_filter :login_required
+
+  def rss_playlist
+    @videos = FileInfo.find_all_by_test_id_and_ext(params[:id], "video/x-flv", :order => "id ASC")
+    render :layout => false
+    response.headers["Content-Type"] = "application/xml; charset=utf-8"
+  end
+
+  def import_tests
+
+  end
+
+  def export_tests
+
+  end
+
+  def list_view
+    @tests = Test.find(:all)
+  end
+
+  def edit_test
+    @test = Test.find(params[:id])
+    @questions = Question.find_all_by_test_id(params[:id], :order => "id ASC")
+    @question_types = QuestionType.find(:all)
+  end
+
+  def add_question
+    @question = Question.new(:test_id => params[:id], :tekst => "---", :question_type_id => QuestionType.first.id)
+    self.check_errors(@question.save, @question)
+    redirect_to :action => 'edit_test', :id => params[:id]
+  end
+
+  def add_answer
+    Answer.create :question_id => params[:question_id], :tekst => "---", :points => 0
+    redirect_to :action => 'edit_test', :id => params[:test_id]
+  end
+
+  def change_question
+    if params[:commit] == "Usuń załącznik"
+      Question.find(params[:question_id]).file_info.destroy
+      flash[:notice] = "Pomyślnie wykonano operację"
+    end
+    if params[:commit] == "Usuń pytanie"
+      Question.find(params[:question_id]).destroy
+      flash[:notice] = "Pomyślnie wykonano operację"
+    end
+    if params[:commit] == "Zapisz pytanie"
+      @q = Question.find(params[:question_id])
+      if self.check_errors(@q.update_attributes(params[:questions].first.last), @q)
+        if !params[:attachment].nil?
+          if @q.file_info.blank?
+            tmp = FileInfo.create_from_upload(params)
+            if tmp != true
+              self.check_errors(false, tmp)
+            end
+          else
+            #FileInfo.update_from_upload(params)
+          end
+        end
+      end
+    end
+    redirect_to :action => 'edit_test', :id => params[:test_id]
+  end
+
+
+  def change_answer
+    if params[:commit] == "Usuń załącznik"
+      Answer.find(params[:answer_id]).file_info.destroy
+      flash[:notice] = "Pomyślnie wykonano operację"
+    end
+    if params[:commit] == "Usuń odpowiedź"
+      Answer.find(params[:answer_id]).destroy
+      flash[:notice] = "Pomyślnie wykonano operację"
+    end
+    if params[:commit] == "Zapisz odpowiedź"
+      @a = Answer.find(params[:answer_id])
+      if self.check_errors(@a.update_attributes(params[:curr_answers].first.last), @a)
+        if !params[:attachment].nil?
+          if @a.file_info.blank?
+            tmp = FileInfo.create_from_upload(params)
+            if tmp != true
+              self.check_errors(false, tmp)
+            end
+          else
+            #FileInfo.update_from_upload(params)
+          end
+        end
+      end
+    end
+    redirect_to :action => 'edit_test', :id => params[:test_id]
+  end
+
+
+  def delete_test
+    Test.find(params[:id]).destroy
+    flash[:notice] = "Usunięto wybrany test"
+    redirect_to :action => 'list_view'
+  end
+
+  def create_test
+    @test = Test.new
+    @users = User.find(:all)
+    @test_groups = TestGroup.find(:all,:order => "name ASC")
+  end
+
+  def save_test
+    @test = Test.new(params[:test])
+    if self.check_errors(@test.save, @test)
+      redirect_to :action => 'edit_test', :id => @test.id
+    else
+      @users = User.find(:all)
+      render :action => 'create_test'
+    end
+  end
+end

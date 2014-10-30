@@ -1,0 +1,12 @@
+<% content_for :center do %>
+  <%if @active_tests.blank?%>
+    Brak aktywnych testów
+  <%else%>
+    Aktywne testy:
+    <ul>
+      <%@active_tests.each do |a_test|%>
+      <li><%= link_to "#{a_test.test.name}, Grupa: #{a_test.group.name}", :controller => 'active_test', :action => 'participate', :id => a_test.id%></li>
+      <%end%>
+    </ul>
+    <%end%>
+<%end%>

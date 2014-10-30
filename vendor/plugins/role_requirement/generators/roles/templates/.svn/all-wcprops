@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/generators/roles/templates
+END
+hijacker.rb
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/generators/roles/templates/hijacker.rb
+END
+roles.yml
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/generators/roles/templates/roles.yml
+END
+001_roles_migration.rb.erb
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/generators/roles/templates/001_roles_migration.rb.erb
+END
+role_requirement_test_helper.rb.erb
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/generators/roles/templates/role_requirement_test_helper.rb.erb
+END
+role_model.rb.erb
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/generators/roles/templates/role_model.rb.erb
+END
+_user_functions.erb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/generators/roles/templates/_user_functions.erb
+END
+role_requirement_system.rb.erb
+K 25
+svn:wc:ra_dav:version-url
+V 133
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/generators/roles/templates/role_requirement_system.rb.erb
+END
+users_admin_fixture_with_roles.yml
+K 25
+svn:wc:ra_dav:version-url
+V 137
+/svn/egzaminator/!svn/ver/4/egzaminator_ror/vendor/plugins/role_requirement/generators/roles/templates/users_admin_fixture_with_roles.yml
+END

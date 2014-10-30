@@ -1,0 +1,3 @@
+<% content_for :center do %>
+  Witamy w programie Egzaminator 1.0.
+<%end%>

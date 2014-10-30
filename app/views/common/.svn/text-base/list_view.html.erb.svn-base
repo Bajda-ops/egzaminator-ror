@@ -1,0 +1,53 @@
+<% content_for :title do %>
+  <%if @tg%>
+    Utworzone grupy testów
+  <%elsif @g%>
+    Utworzone grupy użytkowników
+  <%end%>
+<%end%>
+
+<% content_for :content do %>
+
+  <% if @hi_items.blank? and @g%>
+    <p>Brak grup użytkowników</p>
+  <%elsif @hi_items.blank? and @tg%>
+    <p>Brak grup testów</p>
+  <% else %>
+    <p>Grupy:</p>
+    <ul id="groups">
+      <% @hi_items.each do |c| %>
+        <li><a name="tg_<%= c.id -%>" onclick="slide_js('tg_wrapper_<%=c.id-%>');" href="#tg_<%= c.id -%>"><%= c.name + " " + "(#{(@g ? (c.users.size) : (c.tests.size))})" + ", właściciel: " + c.user.name + " " + c.user.surname-%></a><%= link_to "[Usuń]", {:action =>'delete_with_content', :id => c.id}, :onClick => "return confirm('Czy napewno usunąć grupę wraz z zawartością?');"-%><%= link_to "[Edytuj]", {:action =>'edit', :id => c.id}-%>
+          <%if current_user.has_full_access?(c) %>
+            <%= link_to "[Edycja uprawnień]", {:action =>'edit_ownership', :id => c.id}-%>
+          <%elsif current_user.has_restricted_access?(c)%>
+            <%= link_to "[Usuń uprawnienia]", {:action =>'delete_ownership', :id => c.id}, :onClick => "return confirm('Czy napewno usunąć uprawnienia do grupy?');"-%>
+          <%end%>
+        </li>
+        <div id="tg_wrapper_<%=c.id-%>" style="display: none;">
+          <div>
+            <% @dep_items = c.find_all_deps_with_user_rights(current_user.id, (@g ? "surname ASC" : "name ASC")) %>
+            <%if @dep_items.blank?%>
+              Brak zawartości w grupie
+            <%else%>
+              <ul>
+                <%(@g ? (par = ["users", "delete_user", "edit_user"]) : (par = ["test", "delete_test", "edit_test"]))%>
+                <% @dep_items.each do |dep_item| %>
+                  <li><%= dep_item.name + (@g ? dep_item.surname : "") + ", właściciel: " + dep_item.user.name + " " + dep_item.user.surname -%><%= link_to "[Usuń]", {:controller => par[0], :action => par[1], :id => dep_item.id}, :onClick => "return confirm('Czy napewno usunąć?');"-%><%= link_to "[Edytuj]", {:controller => par[0], :action => par[2], :id => dep_item.id}-%>
+                    <%if current_user.has_full_access?(dep_item) %>
+                      <%= link_to "[Edycja uprawnień]", {:controller => par[0], :action =>'edit_ownership', :id => dep_item.id}-%>
+                    <%elsif current_user.has_restricted_access?(dep_item)%>
+                      <%= link_to "[Usuń uprawnienia]", {:action =>'delete_ownership', :id => dep_item.id}, :onClick => "return confirm('Czy napewno usunąć uprawnienia do grupy?');"-%>
+                    <%end%>
+                  </li>
+                <%end%>
+              </ul>
+            <%end%>
+          </div>
+        </div>
+      <% end %>
+    </ul>
+  <% end %>
+  <%(@g ? (par = "group") : (par = "test_group"))%>
+  <p><%= link_to "Dodaj grupę", {:controller => par, :action => "add"}%></p>
+
+<%end%>

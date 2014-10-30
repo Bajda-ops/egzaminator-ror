@@ -1,0 +1,36 @@
+<% content_for :title do %>
+  Edycja uprawnień
+<%end%>
+
+<% content_for :content do %>
+  <span>Typ obiektu : <%= @item.human_class_name %></span><br />
+  <span>Właściciel : <%= @item.user.full_name%></span><br />
+  <%if @users.blank?%>
+    Brak nadanych uprawnień
+  <%else%>
+    <table border="1">
+      <tr  >
+        <th colspan="2">Uprawnienia</th>
+      </tr>
+      <tr>
+        <th>Użytkownik</th><th>Operacje</th>
+      </tr>
+      <%@users.each do |user|%>
+        <tr>
+          <td><%= user.full_name%></td>
+          <td><%= link_to "Usuń uprawnienie", :action => "delete_ownership", :id => @item.id, :user_id => user.id %></td>
+        </tr>
+      <%end%>
+    </table>
+  <%end%>
+  <span>
+    Nadaj prawa użytkownikowi:
+    <% form_tag :action => 'add_ownership', :id => @item.id  do %>
+      <%= collection_select(nil, :user_id, @teachers, :id, :full_name) %>
+      <% if (@item.class.name == "Group") or (@item.class.name == "TestGroup")%>
+        <%= select(nil, :type, [["Prawa dla grupy", "1"],["Prawa dla wszystkich elementów grupy", "2"]]) %>
+      <%end%>
+      <%= submit_tag "Zapisz" %>
+    <%end%>
+  </span>
+<%end%>

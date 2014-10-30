@@ -1,0 +1,2 @@
+class UserOwnership < Ownership
+end

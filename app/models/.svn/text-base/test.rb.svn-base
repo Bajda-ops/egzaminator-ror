@@ -1,0 +1,25 @@
+class Test < ActiveRecord::Base
+
+  include ModelHumanClassName
+
+  has_many :taken_tests, :dependent => :destroy
+  has_many :questions, :dependent => :destroy
+  has_many :file_infos, :dependent =>:destroy
+  belongs_to :user
+
+  validates_presence_of     :name, :message => "nie może być pusta"
+  validates_presence_of     :user_id, :message => "nie może być pusty"
+  validates_presence_of     :test_group_id, :message => "nie może być pusta"
+  validates_length_of       :name,    :within => 3..40, :message => "nie jest odpowiedniej długości (3-40)"
+
+  HUMAN_ATTRIBUTES = {
+    :name                => "Nazwa testu",
+    :user_id             => "Identyfikator właściciela",
+    :test_group_id       => "Grupa testów"
+  }
+
+  def self.human_attribute_name(attr)
+    HUMAN_ATTRIBUTES[attr.to_sym] || super
+  end
+
+end
